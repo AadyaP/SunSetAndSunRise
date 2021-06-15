@@ -30,7 +30,11 @@ function draw(){
      background(backgroundImg)
 
     Engine.update(engine);
-
+     
+    noStroke();
+    textSize(25)
+    fill("black")
+    text("Time:11:30 AM",1000,100);
     // write code to display time in correct format here
     
 
