@@ -26,7 +26,7 @@ function setup(){
 function draw(){
 
     // add condition to check if any background image is there to add
-    if(backgroundImg)
+    if(getBackgroundImg)
      background(backgroundImg)
 
     Engine.update(engine);
@@ -34,7 +34,13 @@ function draw(){
     noStroke();
     textSize(25)
     fill("black")
-    text("Time:11:30 AM",1000,100);
+    //text("Time:11:30 AM",1000,100);
+    if(hour===0|| hour<12){
+        text("Time"+hour+"AM",1000,100)
+    }
+    else{
+        text("Time"+hour+"PM",1000,100)
+    }
     // write code to display time in correct format here
     
 
@@ -45,7 +51,7 @@ function draw(){
 
     
     async function getBackgroundImg(){
-        var response= await fetch("https://worldtimeapi.org/api/timezone/Asia/kolkata");
+        var response= await fetch("http://worldtimeapi.org/api/timezone/Asia/Kolkata");
         var responseJSON=await response.json();
         var datetime=responseJSON.datetime;
         var hour=datetime.slice(11,13);
